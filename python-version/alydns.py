@@ -44,8 +44,15 @@ class AliDns:
                     domainarr.append(val)
 
             #rootdomain = '.'.join(domain_parts[-(2 if domain_parts[-1] in {"co.jp", "com.tw", "net", "com", "com.cn", "org", "cn", "gov", "net.cn", "io", "top", "me", "int", "edu", "link"} else 3):])
-            rootdomain = '.'.join(domain_parts[-(2 if domain_parts[-1] in
-                                                 domainarr else 3):])
+            # rootdomain = '.'.join(domain_parts[-(2 if domain_parts[-1] in
+            #                                      domainarr else 3):])
+            for i in range(len(domain_parts)):
+                dm = '.'.join(domain_parts[-len(domain_parts)+i+1:])
+                print (dm)
+                if dm in domainarr:
+                    rootdomain = dm
+                    break
+            print (rootdomain)
             selfdomain = domain.split(rootdomain)[0]
             return (selfdomain[0:len(selfdomain)-1], rootdomain)
         return ("", domain)
