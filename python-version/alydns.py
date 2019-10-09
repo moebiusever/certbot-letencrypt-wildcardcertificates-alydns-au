@@ -47,7 +47,7 @@ class AliDns:
             # rootdomain = '.'.join(domain_parts[-(2 if domain_parts[-1] in
             #                                      domainarr else 3):])
             for i in range(len(domain_parts)):
-                dm = '.'.join(domain_parts[-len(domain_parts)+i+1:])
+                dm = '.'.join(domain_parts[-len(domain_parts)+i:])
                 print (dm)
                 if dm in domainarr:
                     rootdomain = dm
